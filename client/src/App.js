@@ -1,6 +1,6 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
-import AllMembersPage from "pages/AllMembersPage/AllMembersPage";
+import AllMembersPage from "pages/AllUsersPage/AllUsersPage";
 import AllQuestionsPage from "pages/AllQuestionsPage/AllQuestionsPage";
 import QuestionPage from "pages/AllQuestionsPage/QuestionPage";
 import AskForm from "components/AskForm";

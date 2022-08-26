@@ -2,12 +2,39 @@ import axios from "axios";
 import LeftSidebar from "components/LeftSidebar";
 import RightSidebar from "components/RightSidebar";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  width: 100vw;
+  max-width: 100%;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  padding: 15px 15px 0 15px;
+  height: 100vh;
+`;
+
+const TitleANdButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+`;
+
+const InnerContent = styled.div`
+  display: flex;
+  padding-top: 15px;
+  height: 100vh;
+`;
+
+const QuestionContent = styled.div`
+  flex-grow: 1;
+  padding: 0 15px 15px 0;
 `;
 
 function QuestionPage() {
@@ -35,18 +62,24 @@ function QuestionPage() {
   return (
     <Container>
       <LeftSidebar />
-      <div>
-        <div>QuestionPage</div>
-        {!isLoading && (
-          <div>
+      {!isLoading && (
+        <Content>
+          <TitleANdButton>
             <div>{question.title}</div>
-            <div>{question.author}</div>
-            <div>{question.content}</div>
-          </div>
-        )}
-        <button onClick={() => handleDeleteQeustion(id)}>Delete</button>
-      </div>
-      <RightSidebar />
+            <Link to="/questions/ask">
+              <button>Ask Question</button>
+            </Link>
+          </TitleANdButton>
+          <InnerContent>
+            <QuestionContent>
+              <div>{question.content}</div>
+              <div>{question.author}</div>
+              <button onClick={() => handleDeleteQeustion(id)}>Delete</button>
+            </QuestionContent>
+            <RightSidebar />
+          </InnerContent>
+        </Content>
+      )}
     </Container>
   );
 }

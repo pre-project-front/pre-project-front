@@ -7,7 +7,16 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  padding-right: 15px;
+`;
+
+const Main = styled.div`
+  flex-grow: 1;
+  padding: 15px;
+`;
+
+const DFlex = styled.div`
+  display: flex;
 `;
 
 function AllQuestionsPage() {
@@ -26,13 +35,13 @@ function AllQuestionsPage() {
   return (
     <Container>
       <LeftSidebar />
-      <div>
-        <div>
+      <Main>
+        <DFlex>
           <h1>All Questions</h1>
           <Link to="/questions/ask">
             <button>Ask Question</button>
           </Link>
-        </div>
+        </DFlex>
         <div>
           <span>{questions.length} questions</span>
         </div>
@@ -47,7 +56,7 @@ function AllQuestionsPage() {
               </div>
             ))}
         </div>
-      </div>
+      </Main>
       <RightSidebar />
     </Container>
   );

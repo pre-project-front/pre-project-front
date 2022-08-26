@@ -8,7 +8,7 @@ import Login from "pages/Login";
 import Logout from "pages/Logout";
 import Signup from "pages/Signup";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import styled from "styled-components";
 
 function App() {
   return (

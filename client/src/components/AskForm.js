@@ -9,7 +9,7 @@ function AskForm() {
 
   const navigate = useNavigate();
 
-  const onSubmitQuestion = (e) => {
+  const HandleSubmitQuestion = (e) => {
     e.preventDefault();
     if (title.length === 0 || content.length === 0) return;
 
@@ -25,11 +25,11 @@ function AskForm() {
       });
   };
 
-  const onChangeTitle = (e) => {
+  const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
 
-  const onChangeContent = (e) => {
+  const handleChangeContent = (e) => {
     setContent(e.target.value);
   };
 
@@ -37,7 +37,7 @@ function AskForm() {
     <div>
       <div>Ask a public question</div>
       <div>
-        <form onSubmit={onSubmitQuestion}>
+        <form onSubmit={HandleSubmitQuestion}>
           <div>
             <div>Title</div>
             <p>
@@ -46,7 +46,7 @@ function AskForm() {
             <input
               type="text"
               value={title}
-              onChange={onChangeTitle}
+              onChange={handleChangeTitle}
               placeholder="e.g. Is there an R function for finding the index of an element in a vector?"
               autoFocus
               required
@@ -61,7 +61,7 @@ function AskForm() {
             <textarea
               type="text"
               value={content}
-              onChange={onChangeContent}
+              onChange={handleChangeContent}
               required
             />
           </div>

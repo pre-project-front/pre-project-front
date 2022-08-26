@@ -131,6 +131,8 @@ function Login({ setIsLogin, setUserInfo }) {
     if (!loginInfo.userId || !loginInfo.password) {
       setErrorMessage("Text Box cannot be empty.");
 
+      setErrorMessage("Text box cannot be empty.");
+
       return;
     } else {
       setErrorMessage("");

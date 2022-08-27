@@ -1,66 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "styles/common";
+import { logo } from "styles/image";
+import SearchBar from "./SearchBar";
 
-const TopHeader = styled.header`
-  /* display: flex;
-  justify-content: space-between; */
+const HeaderContainer = styled.header`
+  display: flex;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  max-width: 100%;
-  height: 47px;
-  background-color: lightgrey;
-  border: 1px black solid;
+  width: 100%;
+  height: 50px;
+  padding: 8px 10px;
+  border-top: 3px solid rgb(244, 130, 37);
+  background-color: hsl(210, 8%, 97.5%);
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
+    0 2px 8px hsla(0, 0%, 0%, 0.05);
+
+  > #logo {
+    display: inline-block;
+    flex-grow: 0;
+  }
+
+  img {
+    width: 145px;
+  }
 `;
 
-const Buttons = styled.ul`
+const Buttons = styled.div`
   display: inline-block;
-`;
-
-const Button = styled.li`
-  display: inline-block;
-`;
-
-const SearchForm = styled.form`
-  display: inline-block;
+  flex-grow: 0;
 `;
 
 function Header() {
-  const [value, setValue] = useState("");
-
-  const handleSearchInput = (e) => {
-    setValue(e.target.value);
-  };
-
-  // 전체 게시글 관련 정보를 전역으로 관리, 거기서 가져와서 대조하기
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <TopHeader>
-      <Link to="/">
-        <span>Stack overflow</span>
-      </Link>
-      <SearchForm onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          value={value}
-          onChange={handleSearchInput}
-          placeholder="Search..."
-        />
-      </SearchForm>
+    <HeaderContainer>
+      <div id="logo">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
+      <SearchBar />
       <Buttons>
         <Link to="/login">
           <Button>Log in</Button>
         </Link>
         <Link to="/signup">
-          <Button>Sign up</Button>
+          <Button margin="0 0 0 5px">Sign up</Button>
         </Link>
       </Buttons>
-    </TopHeader>
+    </HeaderContainer>
   );
 }
 

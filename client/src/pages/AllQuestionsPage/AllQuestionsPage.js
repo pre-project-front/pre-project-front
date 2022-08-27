@@ -1,22 +1,15 @@
 import LeftSidebar from "components/LeftSidebar";
-import RightSidebar from "components/RightSidebar";
+// import RightSidebar from "components/RightSidebar";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Button, ContentContainer, PageContainer } from "styles/common";
+import Footer from "components/Footer";
+import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  padding-right: 15px;
-`;
-
-const Main = styled.div`
-  flex-grow: 1;
-  padding: 15px;
-`;
-
-const DFlex = styled.div`
-  display: flex;
+const MainContainer = styled.div`
+  border-left: 1px solid hsl(210, 8%, 85%);
+  padding: 24px 16px;
 `;
 
 function AllQuestionsPage() {
@@ -33,32 +26,34 @@ function AllQuestionsPage() {
   }, []);
 
   return (
-    <Container>
-      <LeftSidebar />
-      <Main>
-        <DFlex>
+    <PageContainer>
+      <ContentContainer>
+        <LeftSidebar />
+        <MainContainer>
           <h1>All Questions</h1>
           <Link to="/questions/ask">
-            <button>Ask Question</button>
+            <Button>Ask Question</Button>
           </Link>
-        </DFlex>
-        <div>
-          <span>{questions.length} questions</span>
-        </div>
-        <div id="questions">
-          {!isLoading &&
-            questions.map((question) => (
-              <div key={question.id}>
-                <Link to={`/questions/${question.id}`}>
-                  <div>{question.title}</div>
-                </Link>
-                <div>{question.author}</div>
-              </div>
-            ))}
-        </div>
-      </Main>
-      <RightSidebar />
-    </Container>
+          <div>
+            <span>{questions.length} questions</span>
+          </div>
+          <div id="questions">
+            {!isLoading &&
+              questions.map((question) => (
+                <div key={question.id}>
+                  <Link to={`/questions/${question.id}`}>
+                    <div>{question.title}</div>
+                  </Link>
+                  <div>{question.author}</div>
+                </div>
+              ))}
+          </div>
+          <div>right sidebar</div>
+        </MainContainer>
+        {/* <RightSidebar /> */}
+      </ContentContainer>
+      <Footer />
+    </PageContainer>
   );
 }
 

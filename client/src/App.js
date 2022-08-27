@@ -1,4 +1,3 @@
-import Footer from "components/Footer";
 import Header from "components/Header";
 import AllMembersPage from "pages/AllUsersPage/AllUsersPage";
 import AllQuestionsPage from "pages/AllQuestionsPage/AllQuestionsPage";
@@ -8,7 +7,6 @@ import Login from "pages/Login";
 import Logout from "pages/Logout";
 import Signup from "pages/Signup";
 import { Route, Routes } from "react-router-dom";
-import styled from "styled-components";
 
 function App() {
   return (
@@ -23,7 +21,6 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/logout" element={<Logout />}></Route>
       </Routes>
-      <Footer />
     </>
   );
 }

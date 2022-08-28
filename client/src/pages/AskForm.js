@@ -1,8 +1,8 @@
 import axios from "axios";
+import Footer from "components/Footer";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, ContentContainer, PageContainer } from "styles/common";
-import Footer from "./Footer";
 
 function AskForm() {
   const [title, setTitle] = useState("");
@@ -11,7 +11,7 @@ function AskForm() {
 
   const navigate = useNavigate();
 
-  const HandleSubmitQuestion = (e) => {
+  const HandleSubmitAskQuestion = (e) => {
     e.preventDefault();
     if (title.length === 0 || content.length === 0) return;
 
@@ -22,8 +22,7 @@ function AskForm() {
         author,
       })
       .then((res) => {
-        console.log(res);
-        navigate("/");
+        navigate(`/questions/${res.data.id}`);
       });
   };
 
@@ -40,7 +39,7 @@ function AskForm() {
       <ContentContainer>
         <div>Ask a public question</div>
         <div>
-          <form onSubmit={HandleSubmitQuestion}>
+          <form onSubmit={HandleSubmitAskQuestion}>
             <div>
               <div>Title</div>
               <p>

@@ -7,8 +7,10 @@ export const Button = styled.button`
   border-color: ${(props) => props.borderColor || "transparent"};
   color: ${(props) => props.color || "hsl(0,0%,100%)"};
   font-size: 13px;
+  height: ${(props) => props.height};
   padding: ${(props) => props.padding || "7px 10.4px"};
   margin: ${(props) => props.margin};
+  white-space: nowrap;
   cursor: pointer;
   &:hover {
     filter: brightness(0.8);

@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const SearchForm = styled.form`
-  flex-grow: 1;
-  display: flex;
-  padding: 0 20px;
-
-  > input {
-    flex-grow: 1;
-    padding: 5px;
-  }
-`;
-
 function SearchBar() {
   const [value, setValue] = useState("");
 
@@ -37,3 +26,15 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
+const SearchForm = styled.form`
+  flex-grow: 1;
+  display: flex;
+  padding: 0 20px;
+
+  > input {
+    flex-grow: 1;
+    padding: 5px 10px;
+    border: 1px solid hsl(210, 8%, 75%);
+  }
+`;

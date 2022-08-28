@@ -5,6 +5,35 @@ import { Button } from "styles/common";
 import { logo } from "styles/image";
 import SearchBar from "./SearchBar";
 
+function Header() {
+  return (
+    <HeaderContainer>
+      <div id="logo">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
+      <SearchBar />
+      <Buttons>
+        <Link to="/login">
+          <Button
+            backgroundColor="#E1ECF4"
+            color="#39739D"
+            borderColor="#39739D"
+          >
+            Log in
+          </Button>
+        </Link>
+        <Link to="/signup">
+          <Button margin="0 0 0 5px">Sign up</Button>
+        </Link>
+      </Buttons>
+    </HeaderContainer>
+  );
+}
+
+export default Header;
+
 const HeaderContainer = styled.header`
   display: flex;
   position: fixed;
@@ -30,27 +59,5 @@ const HeaderContainer = styled.header`
 const Buttons = styled.div`
   display: inline-block;
   flex-grow: 0;
+  white-space: nowrap;
 `;
-
-function Header() {
-  return (
-    <HeaderContainer>
-      <div id="logo">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
-      <SearchBar />
-      <Buttons>
-        <Link to="/login">
-          <Button>Log in</Button>
-        </Link>
-        <Link to="/signup">
-          <Button margin="0 0 0 5px">Sign up</Button>
-        </Link>
-      </Buttons>
-    </HeaderContainer>
-  );
-}
-
-export default Header;

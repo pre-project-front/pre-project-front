@@ -1,41 +1,11 @@
 import axios from "axios";
+import Footer from "components/Footer";
 import LeftSidebar from "components/LeftSidebar";
 import RightSidebar from "components/RightSidebar";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-
-const Container = styled.div`
-  display: flex;
-  width: 100vw;
-  max-width: 100%;
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  max-width: 100%;
-  padding: 15px 15px 0 15px;
-  height: 100vh;
-`;
-
-const TitleANdButton = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-`;
-
-const InnerContent = styled.div`
-  display: flex;
-  padding-top: 15px;
-  height: 100vh;
-`;
-
-const QuestionContent = styled.div`
-  flex-grow: 1;
-  padding: 0 15px 15px 0;
-`;
+import { Button, ContentContainer, PageContainer } from "styles/common";
 
 function QuestionPage() {
   const [question, setQuestion] = useState({});
@@ -60,28 +30,69 @@ function QuestionPage() {
   }, [id]);
 
   return (
-    <Container>
-      <LeftSidebar />
-      {!isLoading && (
-        <Content>
-          <TitleANdButton>
-            <div>{question.title}</div>
-            <Link to="/questions/ask">
-              <button>Ask Question</button>
-            </Link>
-          </TitleANdButton>
-          <InnerContent>
-            <QuestionContent>
-              <div>{question.content}</div>
-              <div>{question.author}</div>
-              <button onClick={() => handleDeleteQeustion(id)}>Delete</button>
-            </QuestionContent>
-            <RightSidebar />
-          </InnerContent>
-        </Content>
-      )}
-    </Container>
+    <PageContainer>
+      <ContentContainer>
+        <LeftSidebar />
+        {!isLoading && (
+          <MainContainer>
+            <TitleANdButton>
+              <h1>{question.title}</h1>
+              <div>
+                <Link to="/questions/ask">
+                  <Button height="40px">Ask Question</Button>
+                </Link>
+              </div>
+            </TitleANdButton>
+            <InnerContent>
+              <QuestionContent>
+                <div>{question.content}</div>
+                <div>{question.author}</div>
+                <Link to={`/posts/${question.id}/edit`}>
+                  <button>Edit</button>
+                </Link>
+                <button onClick={() => handleDeleteQeustion(id)}>Delete</button>
+              </QuestionContent>
+              <RightSidebar />
+            </InnerContent>
+          </MainContainer>
+        )}
+      </ContentContainer>
+      {!isLoading && <Footer />}
+    </PageContainer>
   );
 }
 
 export default QuestionPage;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  border-left: 1px solid hsl(210, 8%, 85%);
+  padding: 24px;
+`;
+
+const TitleANdButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  > h1 {
+    word-wrap: break-word;
+  }
+
+  > div {
+    margin-left: 12px;
+  }
+`;
+
+const InnerContent = styled.div`
+  display: flex;
+  padding-top: 15px;
+  height: 100vh;
+`;
+
+const QuestionContent = styled.div`
+  flex-grow: 1;
+  padding: 0 15px 15px 0;
+`;

@@ -129,7 +129,7 @@ function Login({ setIsLogin, setUserInfo }) {
 
   const handlerloginRequest = () => {
     if (!loginInfo.userId || !loginInfo.password) {
-      setErrorMessage("Text box cannot be empty.");
+      setErrorMessage("Email cannot be empty.");
       return;
     } else {
       setErrorMessage("");

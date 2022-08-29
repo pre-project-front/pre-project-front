@@ -43,16 +43,16 @@
       "id": 7
     }
   ],
-  "users": [
+  "members": [
     {
       "id": 1,
-      "name": "Lee",
-      "role": "developer"
+      "nickname": "Oliver",
+      "reputation": "630"
     },
     {
       "id": 2,
-      "name": "Kim",
-      "role": "designer"
+      "nickname": "diedu",
+      "reputation": "600"
     }
   ],
   "users": [

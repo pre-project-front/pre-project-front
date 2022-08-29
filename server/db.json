@@ -42,5 +42,17 @@
       "author": "jeong",
       "id": 7
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Lee",
+      "role": "developer"
+    },
+    {
+      "id": 2,
+      "name": "Kim",
+      "role": "designer"
+    }
   ]
 }

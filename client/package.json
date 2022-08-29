@@ -41,5 +41,6 @@
   },
   "resolutions": {
     "styled-components": "^5"
-  }
+  },
+  "proxy": "http://15.165.91.245:8080"
 }

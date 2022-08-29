@@ -47,12 +47,50 @@
     {
       "id": 1,
       "nickname": "Oliver",
+
       "reputation": "630"
     },
     {
       "id": 2,
       "nickname": "diedu",
+
       "reputation": "600"
+    },
+    {
+      "id": 3,
+      "nickname": "mozway",
+
+      "reputation": "460"
+    },
+    {
+      "id": 4,
+      "nickname": "VonC",
+
+      "reputation": "445"
+    },
+    {
+      "id": 5,
+      "nickname": "Antonio Bakula",
+
+      "reputation": "630"
+    },
+    {
+      "id": 6,
+      "nickname": "apple",
+
+      "reputation": "600"
+    },
+    {
+      "id": 7,
+      "nickname": "ber",
+
+      "reputation": "460"
+    },
+    {
+      "id": 8,
+      "nickname": "kesha",
+
+      "reputation": "445"
     }
   ],
   "users": [

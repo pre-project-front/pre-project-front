@@ -42,5 +42,17 @@
       "author": "jeong",
       "id": 7
     }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "nickname": "Oliver",
+      "reputation": "630"
+    },
+    {
+      "id": 2,
+      "nickname": "diedu",
+      "reputation": "600"
+    }
   ]
 }

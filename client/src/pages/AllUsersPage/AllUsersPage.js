@@ -1,34 +1,41 @@
 import LeftSidebar from "components/LeftSidebar";
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
+import { ContentContainer, PageContainer } from "styles/common";
+import Footer from "components/Footer";
 
 function AllUsersPage() {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
-      console.log(response);
+    axios.get(`${process.env.REACT_APP_URL}/members`).then((res) => {
+      setUsers(res.data);
+      setIsLoading(false);
     });
   }, []);
 
   return (
-    <Container>
-      <LeftSidebar />
-      <div>
+    <PageContainer>
+      <ContentContainer>
+        <LeftSidebar />
         <div>
-          <h1>Users</h1>
+          <div>
+            <h1>Users</h1>
+          </div>
+          <div id="alluserspage">
+            {!isLoading &&
+              users.map((user) => (
+                <div key={user.id}>
+                  <div>{user.nickname}</div>
+                  <div>{user.reputation}</div>
+                </div>
+              ))}
+          </div>
         </div>
-        <div id="alluserspage">
-          <div>member</div>
-          <div>member</div>
-          <div>member</div>
-        </div>
-      </div>
-    </Container>
+      </ContentContainer>
+      <Footer />
+    </PageContainer>
   );
 }
 

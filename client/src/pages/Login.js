@@ -129,10 +129,7 @@ function Login({ setIsLogin, setUserInfo }) {
 
   const handlerloginRequest = () => {
     if (!loginInfo.userId || !loginInfo.password) {
-      setErrorMessage("Text Box cannot be empty.");
-
       setErrorMessage("Text box cannot be empty.");
-
       return;
     } else {
       setErrorMessage("");
@@ -140,6 +137,7 @@ function Login({ setIsLogin, setUserInfo }) {
     return axios
       .post("https://localhost:3001/login", { loginInfo })
       .then((res) => {
+        // 로그인에 성공했다면 응답으로 받은 데이터가 Mypage에 렌더링되도록 State를 변경하세요.
         console.log(res.data);
         setUserInfo(res.data);
         setIsLogin(true);

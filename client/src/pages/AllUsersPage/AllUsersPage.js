@@ -1,13 +1,20 @@
 import LeftSidebar from "components/LeftSidebar";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-function AllMembersPage() {
+function AllUsersPage() {
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
+      console.log(response);
+    });
+  }, []);
+
   return (
     <Container>
       <LeftSidebar />
@@ -15,8 +22,7 @@ function AllMembersPage() {
         <div>
           <h1>Users</h1>
         </div>
-        <div id="members">
-          <div>member</div>
+        <div id="alluserspage">
           <div>member</div>
           <div>member</div>
           <div>member</div>
@@ -26,4 +32,4 @@ function AllMembersPage() {
   );
 }
 
-export default AllMembersPage;
+export default AllUsersPage;

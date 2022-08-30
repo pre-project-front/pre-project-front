@@ -1,6 +1,6 @@
 import axios from "axios";
 import Footer from "components/Footer";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, ContentContainer, PageContainer } from "styles/common";
 
@@ -25,6 +25,11 @@ function AskForm() {
         navigate(`/questions/${res.data.id}`);
       });
   };
+
+  // 서버 통신 테스트
+  useEffect(() => {
+    axios.get("/helloworld").then((res) => console.log(res));
+  }, []);
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);

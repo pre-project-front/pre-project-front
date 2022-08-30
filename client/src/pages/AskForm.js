@@ -13,7 +13,7 @@ function AskForm() {
   const { author, title, content } = askQuestion;
   const navigate = useNavigate();
 
-  // 서버 통신 테스트 // git test
+  // 서버 통신 테스트 // git test 2
   useEffect(() => {
     axios.get("/helloworld").then((res) => console.log(res));
   }, []);

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const questionToEditSlice = createSlice({
-  name: "questionToEdit",
+const questionSlice = createSlice({
+  name: "question",
   initialState: {
     value: { id: null, author: "", title: "", content: "" },
   },
@@ -12,5 +12,5 @@ const questionToEditSlice = createSlice({
   },
 });
 
-export const { edit } = questionToEditSlice.actions;
-export default questionToEditSlice.reducer;
+export const { edit } = questionSlice.actions;
+export default questionSlice.reducer;

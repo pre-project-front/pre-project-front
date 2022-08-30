@@ -8,6 +8,9 @@ import EditForm from "pages/EditForm";
 import Login from "pages/Login";
 import Logout from "pages/Logout";
 import Signup from "pages/Signup";
+import { Route, Routes } from "react-router-dom";
+import EditForm from "pages/EditForm";
+import GridTest from "styles/GridTest";
 
 function App() {
   return (

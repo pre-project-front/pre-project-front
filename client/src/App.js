@@ -8,7 +8,7 @@ import EditForm from "pages/EditForm";
 import Login from "pages/Login";
 import Logout from "pages/Logout";
 import Signup from "pages/Signup";
-import GridTest from "styles/GridTest";
+import GridSort from "styles/GridSort";
 
 function App() {
   return (

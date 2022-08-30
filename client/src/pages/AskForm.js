@@ -26,7 +26,7 @@ function AskForm() {
       });
   };
 
-  // 서버 통신 테스트
+  // 서버 통신 테스트 // git test
   useEffect(() => {
     axios.get("/helloworld").then((res) => console.log(res));
   }, []);

@@ -53,54 +53,58 @@
     {
       "id": 1,
       "nickname": "Oliver",
-      "reputation": "630"
+      "reputation": "630",
+      "location": "NY",
+      "tags": "django, python, haskell"
     },
     {
       "id": 2,
       "nickname": "diedu",
-      "reputation": "600"
+      "reputation": "600",
+      "location": "France",
+      "tags": "angular, dart, flutter"
     },
     {
       "id": 3,
       "nickname": "mozway",
-      "reputation": "460"
+      "reputation": "460",
+      "location": "UK",
+      "tags": "android, android-jetpack-compose, kotlin"
     },
     {
       "id": 4,
       "nickname": "VonC",
-      "reputation": "445"
+      "reputation": "445",
+      "location": "san Fransisco, CA",
+      "tags": "typescript, types, typescript-generics"
     },
     {
       "id": 5,
       "nickname": "Antonio Bakula",
-      "reputation": "630"
+      "reputation": "630",
+      "location": "US",
+      "tags": "reactjs, react-router, react-router-dom"
     },
     {
       "id": 6,
       "nickname": "apple",
-      "reputation": "600"
+      "location": "Belgium",
+      "reputation": "600",
+      "tags": "javascript, promise, async-await"
     },
     {
       "id": 7,
       "nickname": "ber",
-      "reputation": "460"
+      "location": "italy",
+      "reputation": "460",
+      "tags": "python, django, javascript"
     },
     {
       "id": 8,
       "nickname": "kesha",
-      "reputation": "445"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "Lee",
-      "role": "developer"
-    },
-    {
-      "id": 2,
-      "name": "Kim",
-      "role": "designer"
+      "location": "Tokyo",
+      "reputation": "445",
+      "tags": "r, ggplot2, loops"
     }
   ]
 }

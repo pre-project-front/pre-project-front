@@ -4,30 +4,34 @@ import LeftSidebar from "components/LeftSidebar";
 import RightSidebar from "components/RightSidebar";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Button, ContentContainer, PageContainer } from "styles/common";
+import { edit } from "slice/questionToEditSlice";
+import Comments from "./Comments";
 
 function QuestionPage() {
   const [question, setQuestion] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  let { id } = useParams();
+  const { qid } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleDeleteQeustion = (id) => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       return axios
-        .delete(`${process.env.REACT_APP_URL}/questions/${id}`)
+        .delete(`${process.env.REACT_APP_URL}/questions/${qid}`)
         .then(() => navigate("/"));
     }
   };
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL}/questions/${id}`).then((res) => {
+    axios.get(`${process.env.REACT_APP_URL}/questions/${qid}`).then((res) => {
       setQuestion(res.data);
       setIsLoading(false);
     });
-  }, [id]);
+  }, [qid]);
 
   return (
     <PageContainer>
@@ -45,12 +49,19 @@ function QuestionPage() {
             </TitleANdButton>
             <InnerContent>
               <QuestionContent>
-                <div>{question.content}</div>
-                <div>{question.author}</div>
-                <Link to={`/posts/${question.id}/edit`}>
-                  <button>Edit</button>
-                </Link>
-                <button onClick={() => handleDeleteQeustion(id)}>Delete</button>
+                <div>
+                  <div>{question.content}</div>
+                  <div>{question.author}</div>
+                  <Link to={`/posts/${question.id}/edit`}>
+                    <button onClick={() => dispatch(edit(question))}>
+                      Edit
+                    </button>
+                  </Link>
+                  <button onClick={() => handleDeleteQeustion(qid)}>
+                    Delete
+                  </button>
+                </div>
+                <Comments />
               </QuestionContent>
               <RightSidebar />
             </InnerContent>

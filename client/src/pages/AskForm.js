@@ -1,15 +1,22 @@
 import axios from "axios";
 import Footer from "components/Footer";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, ContentContainer, PageContainer } from "styles/common";
 
 function AskForm() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const author = "jeong";
-
+  const [askQuestion, setAskQuestion] = useState({
+    author: "jeong",
+    title: "",
+    content: "",
+  });
+  const { author, title, content } = askQuestion;
   const navigate = useNavigate();
+
+  // 서버 통신 테스트 // git test 2
+  useEffect(() => {
+    axios.get("/helloworld").then((res) => console.log(res));
+  }, []);
 
   const HandleSubmitAskQuestion = (e) => {
     e.preventDefault();
@@ -26,12 +33,9 @@ function AskForm() {
       });
   };
 
-  const handleChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleChangeContent = (e) => {
-    setContent(e.target.value);
+  const handleChangeAskQuestion = (e) => {
+    const { name, value } = e.target;
+    setAskQuestion({ ...askQuestion, [name]: value });
   };
 
   return (
@@ -47,9 +51,10 @@ function AskForm() {
                 person
               </p>
               <input
+                name="title"
                 type="text"
                 value={title}
-                onChange={handleChangeTitle}
+                onChange={handleChangeAskQuestion}
                 placeholder="e.g. Is there an R function for finding the index of an element in a vector?"
                 autoFocus
                 required
@@ -62,9 +67,10 @@ function AskForm() {
                 question
               </p>
               <textarea
+                name="content"
                 type="text"
                 value={content}
-                onChange={handleChangeContent}
+                onChange={handleChangeAskQuestion}
                 required
               />
             </div>

@@ -32,64 +32,62 @@
     },
     {
       "title": "새롭다 - 수정한다",
-      "content": "새로운 글이다 - 수정ㅇㅇ\n",
+      "content": "수정한 글이다 수저엉",
       "author": "jeong",
       "id": 6
     },
     {
-      "title": "글쓰기 수정수정",
-      "content": "수정 <_",
+      "title": "수정",
+      "content": "수수정정 툴킷으로 수정수정dddd",
       "author": "jeong",
       "id": 7
+    },
+    {
+      "title": "새로운 글 new",
+      "content": "리팩토링 ",
+      "author": "jeong",
+      "id": 8
     }
   ],
   "members": [
     {
       "id": 1,
       "nickname": "Oliver",
-
       "reputation": "630"
     },
     {
       "id": 2,
       "nickname": "diedu",
-
       "reputation": "600"
     },
     {
       "id": 3,
       "nickname": "mozway",
-
       "reputation": "460"
     },
     {
       "id": 4,
       "nickname": "VonC",
-
       "reputation": "445"
     },
     {
       "id": 5,
       "nickname": "Antonio Bakula",
-
       "reputation": "630"
     },
     {
       "id": 6,
       "nickname": "apple",
-
       "reputation": "600"
     },
     {
       "id": 7,
       "nickname": "ber",
-
       "reputation": "460"
     },
     {
       "id": 8,
       "nickname": "kesha",
-
       "reputation": "445"
     }
   ],

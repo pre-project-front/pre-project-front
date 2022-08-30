@@ -7,7 +7,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Button, ContentContainer, PageContainer } from "styles/common";
-import { edit } from "slice/questionToEditSlice";
+import { edit } from "slice/questionSlice";
 import Comments from "./Comments";
 
 function QuestionPage() {

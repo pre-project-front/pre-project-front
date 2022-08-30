@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import questionToEditSlice from "slice/questionToEditSlice";
+import questionSlice from "slice/questionSlice";
 
 const store = configureStore({
   reducer: {
-    questionToEdit: questionToEditSlice,
+    question: questionSlice,
   },
 });
 

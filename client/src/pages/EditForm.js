@@ -7,7 +7,7 @@ import { Button, ContentContainer, PageContainer } from "styles/common";
 
 function EditForm() {
   const navigate = useNavigate();
-  const questionToEdit = useSelector((state) => state.questionToEdit.value);
+  const questionToEdit = useSelector((state) => state.question.value);
   const [editQuestion, setEditQuestion] = useState(questionToEdit);
   const { id, title, content, author } = editQuestion;
   const { qid } = useParams();

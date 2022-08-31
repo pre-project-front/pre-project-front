@@ -7,7 +7,7 @@ function LeftSidebar() {
     <LeftSidebarContainer>
       <nav>
         <Link to="/">
-          <div className="home">Home</div>
+          <div className="home">Questions</div>
         </Link>
         <Link to="/members">
           <div className="user">Users</div>

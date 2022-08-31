@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 function RightSidebar() {
-  return (
-    <RightSide>
-      <div>Right sidebar</div>
-    </RightSide>
-  );
+  return <RightSide></RightSide>;
 }
 
 export default RightSidebar;

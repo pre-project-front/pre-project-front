@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 function Footer() {
-  return <FooterContainer>푸터</FooterContainer>;
+  return <FooterContainer></FooterContainer>;
 }
 
 export default Footer;

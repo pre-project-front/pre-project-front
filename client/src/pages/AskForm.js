@@ -57,6 +57,7 @@ function AskForm() {
                 onChange={handleChangeAskQuestion}
                 placeholder="e.g. Is there an R function for finding the index of an element in a vector?"
                 autoFocus
+                maxLength={150}
                 required
               />
             </div>

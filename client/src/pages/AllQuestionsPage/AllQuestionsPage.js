@@ -7,6 +7,7 @@ import { Button, ContentContainer, PageContainer } from "styles/common";
 import Footer from "components/Footer";
 import styled from "styled-components";
 import Sorts from "components/Sorts";
+import Pagination from "react-js-pagination";
 import PageList from "components/PageList";
 
 function AllQuestionsPage() {
@@ -20,15 +21,23 @@ function AllQuestionsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
 
+  // 전체 데이터 수는 서버에서 받아야 됨 (json-server에서는 주지 않아서 하드코딩된 상태)
+  const [activePage, setActivePage] = useState(1);
+  const handleChangePage = (activePage) => {
+    setActivePage(activePage);
+  };
+
   useEffect(() => {
     axios
       .get(
+        `${process.env.REACT_APP_URL}/questions?_sort=id&_order=desc&_page=${activePage}&_limit=5`
         `${process.env.REACT_APP_URL}/questions?_sort=id&_order=desc&_page=${page}&_limit=${limit}`
       )
       .then((res) => {
         setQuestions(res.data);
         setIsLoading(false);
       });
+  }, [activePage]);
   }, [activePage, page]);
 
   return (
@@ -71,6 +80,14 @@ function AllQuestionsPage() {
                     ))}
                 </ul>
               </div>
+              <Pagination
+                acticePage={activePage}
+                itemsCountPerPage={5}
+                totalItemsCount={8}
+                pageRangeDisplayed={5}
+                prevPageText={"<"}
+                nextPageText={">"}
+                onChange={handleChangePage}
               <PageList
                 itemsCountPerPage={limit}
                 totalItemsCount={totalPosts}

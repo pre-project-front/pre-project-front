@@ -9,6 +9,7 @@ import Login from "pages/Login";
 import Logout from "pages/Logout";
 import Signup from "pages/Signup";
 import GridSort from "styles/GridSort";
+import ToastUi from "styles/ToastUi";
 
 function App() {
   return (

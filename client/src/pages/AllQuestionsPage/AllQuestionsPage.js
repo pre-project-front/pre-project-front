@@ -2,16 +2,24 @@ import LeftSidebar from "components/LeftSidebar";
 import RightSidebar from "components/RightSidebar";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button, ContentContainer, PageContainer } from "styles/common";
 import Footer from "components/Footer";
 import styled from "styled-components";
 import Sorts from "components/Sorts";
 import Pagination from "react-js-pagination";
+import PageList from "components/PageList";
 
 function AllQuestionsPage() {
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [activePage, setActivePage] = useState(1);
+  const limit = 5;
+  // 서버에서 get 요청 받을 때 받을 것
+  const totalPosts = 17;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get("page");
 
   // 전체 데이터 수는 서버에서 받아야 됨 (json-server에서는 주지 않아서 하드코딩된 상태)
   const [activePage, setActivePage] = useState(1);
@@ -23,12 +31,14 @@ function AllQuestionsPage() {
     axios
       .get(
         `${process.env.REACT_APP_URL}/questions?_sort=id&_order=desc&_page=${activePage}&_limit=5`
+        `${process.env.REACT_APP_URL}/questions?_sort=id&_order=desc&_page=${page}&_limit=${limit}`
       )
       .then((res) => {
         setQuestions(res.data);
         setIsLoading(false);
       });
   }, [activePage]);
+  }, [activePage, page]);
 
   return (
     <PageContainer>
@@ -59,10 +69,12 @@ function AllQuestionsPage() {
                         </div>
                         <div className="question_content">
                           <Link to={`/questions/${question.id}`}>
-                            <div>{question.title}</div>
+                            <div className="title">{question.title}</div>
                           </Link>
-                          <div>{question.content}</div>
-                          <div>{question.author}</div>
+                          <div className="content">
+                            {`${question.content.slice(0, 120)}...`}
+                          </div>
+                          <div className="author">{question.author}</div>
                         </div>
                       </Question>
                     ))}
@@ -76,6 +88,13 @@ function AllQuestionsPage() {
                 prevPageText={"<"}
                 nextPageText={">"}
                 onChange={handleChangePage}
+              <PageList
+                itemsCountPerPage={limit}
+                totalItemsCount={totalPosts}
+                pageRangeDisplayed={5}
+                setActivePage={setActivePage}
+                setSearchParams={setSearchParams}
+                page={page}
               />
             </QuestionsContainer>
             <RightSidebar />
@@ -134,6 +153,7 @@ const Question = styled.li`
     margin: 0 16px 4px 0;
     font-size: 0.8rem;
     text-align: right;
+    flex-grow: 0;
   }
 
   > .question_content {

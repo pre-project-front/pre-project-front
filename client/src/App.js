@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "components/Header";
 import AllMembersPage from "pages/AllUsersPage/AllUsersPage";
 import AllQuestionsPage from "pages/AllQuestionsPage/AllQuestionsPage";
@@ -16,14 +16,15 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<AllQuestionsPage />}></Route>
-        <Route path="/questions/:qid" element={<QuestionPage />}></Route>
-        <Route path="/questions/ask" element={<AskForm />}></Route>
-        <Route path="/posts/:qid/edit" element={<EditForm />}></Route>
-        <Route path="/members" element={<AllMembersPage />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/logout" element={<Logout />}></Route>
+        <Route path="/" element={<Navigate to="/questions" />} />
+        <Route path="/questions" element={<AllQuestionsPage />} />
+        <Route path="/questions/:qid" element={<QuestionPage />} />
+        <Route path="/questions/ask" element={<AskForm />} />
+        <Route path="/posts/:qid/edit" element={<EditForm />} />
+        <Route path="/members" element={<AllMembersPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </>
   );

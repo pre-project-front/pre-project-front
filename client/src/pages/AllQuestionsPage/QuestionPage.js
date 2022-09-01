@@ -18,7 +18,7 @@ function QuestionPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleDeleteQeustion = (id) => {
+  const handleDeleteQeustion = (qid) => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       return axios
         .delete(`${process.env.REACT_APP_URL}/questions/${qid}`)
@@ -90,6 +90,7 @@ const TitleANdButton = styled.div`
 
   > h1 {
     word-wrap: break-word;
+    min-width: 0;
   }
 
   > div {
